@@ -1,4 +1,4 @@
-// Cloudflare Worker for SHΞN™ V2Ray Aggregator
+ه// Cloudflare Worker for SHΞN™ V2Ray Aggregator
 // This runs the aggregation logic in Cloudflare's edge
 
 export default {
@@ -26,7 +26,7 @@ export default {
       const urls = sourceText.match(/https?:\/\/[^\s\n\\]+/g) || [];
       const validUrls = urls.filter(url => 
         url.includes('github') && 
-        (url.includes('vless') || url.includes('v2ray'))
+        (url.includes('vless''vmess''ss''hysteria') || url.includes('v2ray'))
       ).slice(0, 10); // Limit for performance
       
       let allConfigs = [];
@@ -36,7 +36,7 @@ export default {
         try {
           const response = await fetch(url, { 
             headers: { 'User-Agent': 'Mozilla/5.0' },
-            cf: { cacheTtl: 3600 } // Cache for 1 hour
+            cf: { cacheTtl: 1300 } // Cache for 1 hour
           });
           
           if (response.ok) {
@@ -55,7 +55,7 @@ export default {
             // Add SHΞN™ branding
             return vlessConfigs.map(config => {
               const baseConfig = config.split('#')[0];
-              return `${baseConfig}#SHΞN™ 🏳️`;
+              return `${baseConfig}#SHΞN™ 🏴`;
             });
           }
         } catch (e) {
@@ -74,7 +74,7 @@ export default {
       const profileTitle = btoa('SHΞN™ Subscription');
       const metadata = `#profile-title: base64:${profileTitle}
 #profile-update-interval:1
-#subscription-userinfo: upload=0; download=0; total=10737418240; expire=1735689600
+#subscription-userinfo: upload=36673; download=7474673; total=1737418240; expire=1747375689600
 #hiddify-config: https://raw.githubusercontent.com/Shervinuri/SUBscripSHEN/refs/heads/main/SUBscripSHEN.json
 
 `;
