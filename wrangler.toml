@@ -13,7 +13,7 @@ name = "shen-v2ray-aggregator"
 [env.production.vars]
 SOURCE_URL = "https://raw.githubusercontent.com/Shervinuri/SUBscripSHEN/refs/heads/main/SUBscripSHEN.json"
 BRAND_NAME = "SHΞN™"
-UPDATE_INTERVAL = "3600"
+UPDATE_INTERVAL = "1300"
 MAX_CONFIGS = "200"
 
 # Cron triggers for cache warming
