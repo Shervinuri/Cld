@@ -1,0 +1,35 @@
+# Cloudflare Worker Configuration for SHΞN™ V2Ray Aggregator
+
+name = "shen-v2ray-aggregator"
+main = "cloudflare-worker.js"
+compatibility_date = "2024-09-26"
+compatibility_flags = ["nodejs_compat"]
+
+# Worker settings
+[env.production]
+name = "shen-v2ray-aggregator"
+
+# Environment variables
+[env.production.vars]
+SOURCE_URL = "https://raw.githubusercontent.com/Shervinuri/SUBscripSHEN/refs/heads/main/SUBscripSHEN.json"
+BRAND_NAME = "SHΞN™"
+UPDATE_INTERVAL = "3600"
+MAX_CONFIGS = "200"
+
+# Cron triggers for cache warming
+[[env.production.triggers]]
+crons = ["0 * * * *"]  # Every hour
+
+# KV namespace for caching (optional)
+# [[env.production.kv_namespaces]]
+# binding = "SHEN_CACHE"
+# id = "your-kv-namespace-id"
+
+# Custom domains (uncomment and modify)
+# [[env.production.routes]]
+# pattern = "shervin.kortix.cloud/*"
+# zone_name = "kortix.cloud"
+
+# Resource limits
+[limits]
+cpu_ms = 50
